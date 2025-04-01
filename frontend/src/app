@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json.schemastore.org/angular.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "agendamento-barbearia-frontend": {
+      "projectType": "application",
+      "root": "frontend",
+      "sourceRoot": "frontend/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/agendamento-barbearia-frontend",
+            "index": "frontend/src/index.html",
+            "main": "frontend/src/main.ts",
+            "polyfills": "frontend/src/polyfills.ts",
+            "tsConfig": "frontend/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "frontend/src/favicon.ico",
+              "frontend/src/assets"
+            ],
+            "styles": [
+              "frontend/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "frontend/src/environments/environment.ts",
+                  "with": "frontend/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "agendamento-barbearia-frontend:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "agendamento-barbearia-frontend:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "agendamento-barbearia-frontend:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "frontend/src/test.ts",
+            "tsConfig": "frontend/tsconfig.spec.json",
+            "karmaConfig": "frontend/karma.conf.js",
+            "assets": [
+              "frontend/src/favicon.ico",
+              "frontend/src/assets"
+            ],
+            "styles": [
+              "frontend/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "frontend/tsconfig.app.json",
+              "frontend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "agendamento-barbearia-frontend"
+}
