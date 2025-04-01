@@ -1,0 +1,19 @@
+package com.agendamento.service;
+
+import com.agendamento.model.Agendamento;
+import com.agendamento.repository.AgendamentoRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AgendamentoService {
+
+    private final AgendamentoRepository agendamentoRepository;
+
+    public AgendamentoService(AgendamentoRepository agendamentoRepository) {
+        this.agendamentoRepository = agendamentoRepository;
+    }
+
+    public Agendamento agendar(Agendamento agendamento) {
+        return agendamentoRepository.save(agendamento);
+    }
+}
