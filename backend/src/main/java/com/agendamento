@@ -1,0 +1,21 @@
+package com.agendamento.controller;
+
+import org.springframework.web.bind.annotation.*;
+import com.agendamento.model.Agendamento;
+import com.agendamento.service.AgendamentoService;
+
+@RestController
+@RequestMapping("/api/agendamentos")
+public class AgendamentoController {
+
+    private final AgendamentoService agendamentoService;
+
+    public AgendamentoController(AgendamentoService agendamentoService) {
+        this.agendamentoService = agendamentoService;
+    }
+
+    @PostMapping
+    public Agendamento agendar(@RequestBody Agendamento agendamento) {
+        return agendamentoService.agendar(agendamento);
+    }
+}
